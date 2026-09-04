@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PolicyGuard AI</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div class="wrap">
+<header><h1>🛡️ PolicyGuard AI</h1><span>Authoritative Compliance Agent • Port 8005</span></header>
+<section class="card">
+<label>Policy</label><select id="policy"></select>
+<label>Audit Scenario</label>
+<textarea id="scenario" placeholder="Describe the security or compliance scenario..."></textarea>
+<button onclick="audit()">Evaluate Compliance</button>
+<div id="result"></div>
+</section>
+</div>
+<script src="/static/app.js"></script>
+</body></html>

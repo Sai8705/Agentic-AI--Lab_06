@@ -1,0 +1,14 @@
+[
+  {
+    "policy_id": "POL-PII-01",
+    "scenario": "Developer printed raw customer email addresses and unencrypted PII directly to public S3 logs via HTTP transmission."
+  },
+  {
+    "policy_id": "POL-SEC-01",
+    "scenario": "DevOps team enforced MFA 2FA hardware security keys on all remote VPN access portals with complex passphrases."
+  },
+  {
+    "policy_id": "POL-AI-01",
+    "scenario": "Developer pasted an API key into a public chatbot while troubleshooting production."
+  }
+]

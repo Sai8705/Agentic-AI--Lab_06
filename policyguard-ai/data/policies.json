@@ -1,0 +1,120 @@
+[
+  {
+    "policy_id": "POL-PII-01",
+    "name": "Customer PII Handling",
+    "rules": [
+      {
+        "rule_id": "PII-001",
+        "name": "Encrypt PII in transit",
+        "description": "PII must not be transmitted over insecure HTTP.",
+        "required_keywords": [
+          "https",
+          "tls",
+          "encrypted"
+        ],
+        "prohibited_actions": [
+          "http transmission",
+          "send PII over http",
+          "unencrypted transmission"
+        ],
+        "severity": "CRITICAL",
+        "remediation": "Use HTTPS/TLS for all PII transmission."
+      },
+      {
+        "rule_id": "PII-002",
+        "name": "Mask PII in logs",
+        "description": "Raw customer PII must not appear in logs.",
+        "required_keywords": [
+          "mask",
+          "redact",
+          "sanitize"
+        ],
+        "prohibited_actions": [
+          "raw email in logs",
+          "raw pii in logs",
+          "print customer pii"
+        ],
+        "severity": "HIGH",
+        "remediation": "Mask or redact PII before writing application logs."
+      }
+    ]
+  },
+  {
+    "policy_id": "POL-SEC-01",
+    "name": "Multi-Factor Authentication",
+    "rules": [
+      {
+        "rule_id": "SEC-001",
+        "name": "MFA required",
+        "description": "Remote administrative access must use MFA.",
+        "required_keywords": [
+          "mfa",
+          "2fa",
+          "multi-factor",
+          "security key"
+        ],
+        "prohibited_actions": [
+          "password only",
+          "without mfa"
+        ],
+        "severity": "CRITICAL",
+        "remediation": "Enforce MFA for all remote administrative access."
+      },
+      {
+        "rule_id": "SEC-002",
+        "name": "Strong authentication",
+        "description": "Authentication should use strong credentials.",
+        "required_keywords": [
+          "strong password",
+          "complex passphrase",
+          "hardware security key"
+        ],
+        "prohibited_actions": [
+          "weak password",
+          "default password"
+        ],
+        "severity": "HIGH",
+        "remediation": "Require strong credentials and rotate default credentials."
+      }
+    ]
+  },
+  {
+    "policy_id": "POL-AI-01",
+    "name": "Generative AI Usage",
+    "rules": [
+      {
+        "rule_id": "AI-001",
+        "name": "Protect secrets",
+        "description": "API keys and credentials must never be pasted into public AI tools.",
+        "required_keywords": [
+          "redacted",
+          "secret manager",
+          "masked"
+        ],
+        "prohibited_actions": [
+          "paste api key",
+          "public chatbot api key",
+          "paste password into chatbot"
+        ],
+        "severity": "CRITICAL",
+        "remediation": "Remove secrets and use an approved secret manager."
+      },
+      {
+        "rule_id": "AI-002",
+        "name": "Approved AI services",
+        "description": "Sensitive information must only be processed by approved AI services.",
+        "required_keywords": [
+          "approved ai",
+          "enterprise ai",
+          "data protection"
+        ],
+        "prohibited_actions": [
+          "upload confidential data to public chatbot",
+          "upload customer data to public ai"
+        ],
+        "severity": "HIGH",
+        "remediation": "Use an approved enterprise AI service and apply data-loss controls."
+      }
+    ]
+  }
+]
